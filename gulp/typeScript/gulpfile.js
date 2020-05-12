@@ -1,0 +1,5 @@
+const gulp = require('gulp')
+const ts = require('gulp=typescript')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
+const { series } = require('gulp')

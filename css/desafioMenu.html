@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .cabecalho {
+            height: 70px;
+            position: relative;
+            margin: 0px;
+            background-color: #242028;
+            border-bottom: 4px solid #66a7ce;
+
+        }
+
+        .logo {
+            height: 60px;
+            width: 250px;
+        }
+
+        .logo a {
+            position: absolute;
+            padding: 15px 10px;
+        }
+
+
+
+        .menu {
+            /* background-color: white; */
+            width: 270px;
+            height: 50%;
+            position: absolute;
+            bottom: 20px;
+            left: 300px;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 9px;
+            margin: 0px;
+        }
+
+        .menu ul li {
+            display: inline;
+        }
+
+        .menu ul li a {
+            font-family: Oswald;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 10px;
+            color: #cdcdcd;
+        }
+
+
+        .autenticacao {
+            position: absolute;
+            right: 20px;
+            bottom: 22px;
+        }
+
+        .autenticacao a {
+            font-family: Oswald;
+            font-size: 16px;
+            text-decoration: none;
+            color: #cdcdcd;
+            margin: 5px;
+        }
+
+        .botao {
+            border-radius: 25px;
+            width: 30px;
+            padding: 7px 20px;
+        }
+
+        .destaque {
+            background: #f92334;
+        }
+
+        .menu-toggle {
+            position: absolute;
+            bottom: 22px;
+            right: 20px;
+            display: none;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #66a7ce;
+            color: #242028;
+        }
+
+        @media (max-width: 790px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (max-width: 552px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        @media (max-width: 551px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" height="40" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+
+                <li>
+                    <span wm-folder></span>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <span wm-folder></span>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+
+        window.onhashchange = function (e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            // console.log(oldURL, newURL)
+            const newMenu = document.querySelector(`.menu a[href='#${newURL}']`)
+            const oldMenu = document.querySelector(`.menu a[href='#${oldURL}']`)
+            newMenu && newMenu.classList.add('selected')
+            oldMenu && oldMenu.classList.remove('selected')
+
+        }
+    </script>
+</body>
+
+</html>
