@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conceitos Básicos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div class="" id="app">
+        <p> Hora certa: {{ horaCerta() }} </p>
+        <p> Preço com desconto: {{ precoComDesconto }} </p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: 'Caneta',
+                preco: 6.8,
+                desconto: 0.15
+            },
+            methods: {
+                horaCerta() {
+                    return new Date().toLocaleDateString()
+                }
+            },
+            computed: {
+                precoComDesconto() {
+                    return this.preco * (1 - this.desconto)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
