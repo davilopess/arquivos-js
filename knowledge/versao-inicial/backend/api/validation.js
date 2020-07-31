@@ -20,3 +20,4 @@ module.exports = app => {
 
     return {  existsOrError, notExistsOrError, equalsOrError }
 }
+

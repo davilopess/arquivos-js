@@ -1,3 +1,5 @@
+const { json } = require("body-parser")
+
 module.exports = app => {
     const { existsOrError, notExistsOrError, equalsOrError} = app.api.validation
 
@@ -32,7 +34,7 @@ module.exports = app => {
 
             const subcategory = await app.db('categories')
                 .where({ parentId: req.params.id })
-            
+                
             notExistsOrError(subcategory, 'Categoria possui subcategorias')
 
             const articles = await app.db('articles')
