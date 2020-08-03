@@ -123,6 +123,5 @@ module.exports = app => {
             .then(articles => res.json(articles))
             .catch(err => res.status(500).send(err))
     }
-
     return { save, remove, get, getById, getTree, getByCategory }
 }

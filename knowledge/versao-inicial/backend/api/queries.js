@@ -10,3 +10,4 @@ module.exports = {
         SELECT id FROM subcategories
     `
 }
+
